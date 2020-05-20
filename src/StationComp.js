@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import web3 from './web3';
 import station from './station';
+import Button from 'react-bootstrap/Button';
 
 function StationComp() {
   
@@ -18,6 +19,8 @@ function StationComp() {
     setStationOwner(result);
   }, []);
 
+
+  console.log("heelo");
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -42,7 +45,7 @@ function StationComp() {
       </p>
       <form onSubmit= {onSubmit}>
         <div>
-          <label>Price: 1 eth</label>
+          <label>Price: {value} ether</label>
         </div>
         <button>Start Charging</button>
       </form>

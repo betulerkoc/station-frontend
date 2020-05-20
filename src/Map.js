@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import * as parkData from "./data/skateboard-parks.json";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 import Popup from './Popup';
-
+import Button from 'react-bootstrap/Button';
 
 function Map(){
 
     const [viewport, setViewport] = useState({
       latitude: 41.043869,
       longitude: 29.012890,
-      width: "100vw",
+      width: "90vw",
       height: "100vh",
       zoom: 12
     });
@@ -26,7 +24,7 @@ function Map(){
       };
       window.addEventListener("keydown", listener);
     }, []);
-  
+    
     return (
      <div>
        <ReactMapGL 
@@ -43,12 +41,12 @@ function Map(){
               latitude={park.geometry.coordinates[1]}
               longitude={park.geometry.coordinates[0]}
             >
-              <button onClick = {e => {
+               <Button variant="light" onClick = {e => {
                 e.preventDefault();
                 setSelectedStation(park);
               }}>
                 <img src="/power.png" alt="Skate Park Icon" />
-              </button>
+                </Button>
             </Marker>
           ))}
          

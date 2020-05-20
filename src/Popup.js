@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import React from 'react';
 import StationComp from './StationComp';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 function Popup(props){
-
   return (
-    <Tabs>
-        <TabList>
-            <Tab>Station</Tab>
-            <Tab>Reservation</Tab>
-            <Tab>Charge</Tab>
-        </TabList>
-
-        <TabPanel>
-            <h2>{props.name}</h2>
-            <h2>{props.address}</h2>
-        </TabPanel>
-        <TabPanel>
-            <h2>lalallaa</h2>
-            <StationComp/>
-        </TabPanel>
-  </Tabs>
+        <Modal.Dialog>
+        <Tabs>
+            <Tab eventKey="station" title="Station">
+                <h2>{props.name}</h2>
+                <h2>{props.address}</h2>
+            </Tab>
+            <Tab eventKey="reservation" title="Reservation">
+                <h2>Make Reservation</h2>
+                <StationComp/>
+            </Tab>
+            <Tab eventKey="charging" title="Chargind">
+                <p>Charging</p>
+            </Tab>
+        </Tabs>
+        </Modal.Dialog>
   );
 }
 
