@@ -17,7 +17,7 @@ function Popup(props){
                 <h2>Make Reservation</h2>
                 <StationComp/>
             </Tab>
-            <Tab eventKey="charging" title="Chargind">
+            <Tab eventKey="charging" title="Charging">
                 <p>Charging</p>
             </Tab>
         </Tabs>

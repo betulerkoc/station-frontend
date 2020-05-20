@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import web3 from './web3';
-import station from './station';
+import web3 from '../ethereum/web3';
+import station from '../ethereum/station';
 import Button from 'react-bootstrap/Button';
 
 function StationComp() {
-  
-/* window.ethereum.enable()
-      .then(web3.eth.getAccounts()
-        .then(console.log));  */
 
-    
   const [stationOwner, setStationOwner] = useState('');
   const [message, setMessage] = useState('');
   const [value, setValue] = useState('1');
