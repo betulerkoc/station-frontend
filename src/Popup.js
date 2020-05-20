@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import StationComp from './StationComp';
 
 function Popup(props){
 
@@ -18,7 +19,7 @@ function Popup(props){
         </TabPanel>
         <TabPanel>
             <h2>lalallaa</h2>
-            <h2>lalalalla</h2>
+            <StationComp/>
         </TabPanel>
   </Tabs>
   );
