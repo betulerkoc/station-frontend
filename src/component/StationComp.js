@@ -1,52 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import web3 from '../ethereum/web3';
 import station from '../ethereum/station';
-import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
-function StationComp() {
+class StationComp extends React.Component {
+  state = {
+    stationOwner: '',
+    value: "1",
+    message: ''
+  };
+  
+  async componentDidMount() {
+    const stationOwner = await station.methods.stationOwner().call();  
+    this.setState({stationOwner});
+  }
 
-  const [stationOwner, setStationOwner] = useState('');
-  const [message, setMessage] = useState('');
-  const [value, setValue] = useState('1');
-
-  useEffect(async () => {
-    const result = await station.methods.stationOwner().call();
-    setStationOwner(result);
-  }, []);
-
-
-  console.log("heelo");
-
-  async function onSubmit(event) {
+  onSubmit = async (event) =>{
     event.preventDefault();
 
     const accounts = await web3.eth.getAccounts();
 
-    setMessage({message: 'Waiting on transaction success...'});
+    this.setState({message: 'Please wait for the transaction...'});
+ 
 
     await station.methods.startCharging().send({
       from: accounts[0],
-      value: web3.utils.toWei(value, 'ether')
+      value: web3.utils.toWei(this.state.value, 'ether')
     });
-
-    setMessage({message: 'You have been entered'});
+    this.setState({message: 'Thanks for payment!'});
   };
 
+  render() {
   return (
     <div>
      <h2>Station</h2>
       <p>
-        This station is managed by {stationOwner}
+        This station is managed by {this.state.stationOwner}
       </p>
-      <form onSubmit= {onSubmit}>
+      <form onSubmit= {this.onSubmit}>
         <div>
-          <label>Price: {value} ether</label>
+          <label>Price: {this.state.value} ether</label>
+        {this.state.message == 'Please wait for the transaction...' ?   <p>{this.state.message}  <Spinner animation="border" variant="danger" /> </p> : ''}
         </div>
         <button>Start Charging</button>
+
       </form>
     </div>
   );
-  
+}
 }
 
 export default StationComp;
