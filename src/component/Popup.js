@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import app from '../firebase';
 
 function Popup(props){
   return (
@@ -19,6 +20,7 @@ function Popup(props){
             </Tab>
             <Tab eventKey="charging" title="Charging">
                 <p>Charging</p>
+                <button onClick={() => app.auth().signOut()}>Sign Out</button>
             </Tab>
         </Tabs>
         </Modal.Dialog>

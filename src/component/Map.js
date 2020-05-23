@@ -56,7 +56,8 @@ function Map(){
            </> 
          ) : null}
   
-       </ReactMapGL>     
+       </ReactMapGL>  
+       
      </div>
     );
   }
