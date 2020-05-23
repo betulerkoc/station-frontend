@@ -20,7 +20,6 @@ function Popup(props){
             </Tab>
             <Tab eventKey="charging" title="Charging">
                 <p>Charging</p>
-                <button onClick={() => app.auth().signOut()}>Sign Out</button>
             </Tab>
         </Tabs>
         </Modal.Dialog>

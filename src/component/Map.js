@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import * as parkData from "../data/skateboard-parks.json";
 import Popup from './Popup';
+import Header from './Header';
 import Button from 'react-bootstrap/Button';
 
 function Map(){
@@ -27,6 +28,7 @@ function Map(){
     
     return (
      <div>
+       <Header/>
        <ReactMapGL 
           {...viewport} 
           mapboxApiAccessToken ="pk.eyJ1IjoiYmV0dWxlcmsiLCJhIjoiY2thZHMyNHhqMDNzbDJzbXZoYXV6dnV4NSJ9.LJ04oFCfJO13J8McZL3IfQ"

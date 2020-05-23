@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import {Link} from "react-router-dom";
 import app from "../firebase";
+import Container from 'react-bootstrap/Container';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -18,7 +19,7 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
+    <Container>
       <h1>Sign up</h1>
       <form onSubmit={handleSignUp}>
         <label>
@@ -34,7 +35,7 @@ const SignUp = ({ history }) => {
         <button type="submit">Sign Up</button>
       </form>
       <label>Do you have an account<Link to="/login"> Login</Link></label>
-    </div>
+    </Container>
   );
 };
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import {AuthProvider} from '../context';
 import SignUp from './SignUp';
 import Login from './Login';
 import Map from './Map';
-import {AuthProvider} from '../context';
-import PrivateRoute from './PrivateRoute';
+
+
 
 function App(){
 

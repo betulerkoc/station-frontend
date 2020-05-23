@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "../firebase";
 import { AuthContext } from '../context';
 import {Link} from "react-router-dom";
+import Container from 'react-bootstrap/Container';
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -28,7 +29,7 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>
         <label>
@@ -45,7 +46,7 @@ const Login = ({ history }) => {
         <br/>
       </form>
          <label>Don't you have an account<Link to="/signup"> Sign Up</Link></label>
-    </div>
+    </Container>
   );
 };
 
