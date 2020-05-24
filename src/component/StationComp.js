@@ -33,10 +33,6 @@ class StationComp extends React.Component {
   render() {
   return (
     <div>
-     <h2>Station</h2>
-      <p>
-        This station is managed by {this.state.stationOwner}
-      </p>
       <form onSubmit= {this.onSubmit}>
         <div>
           <label>Price: {this.state.value} ether</label>

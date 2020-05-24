@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import {Link} from "react-router-dom";
 import { AuthContext } from '../context';
+import logo from '../logo.svg';
 
 function Header(){
 
@@ -13,7 +14,7 @@ function Header(){
   return (
   <>
     <Navbar bg="dark" variant="dark">
-      <Link to="/">Charging Station</Link>
+      <Link to="/"><img src={logo} alt="logo" /></Link>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
         {currentUser.email} <Link onClick={() => app.auth().signOut()}> Sign Out </Link>

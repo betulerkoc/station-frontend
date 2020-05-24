@@ -10,7 +10,7 @@ function Map(){
     const [viewport, setViewport] = useState({
       latitude: 41.043869,
       longitude: 29.012890,
-      width: "90vw",
+      width: "100vw",
       height: "100vh",
       zoom: 12
     });
@@ -54,7 +54,7 @@ function Map(){
          
          {selectedStation ? (
             <>
-            <Popup name={selectedStation.properties.NAME} address= {selectedStation.properties.ADDRESS}/>
+            <Popup name={selectedStation.properties.NAME} address={selectedStation.properties.ADDRESS} capacity={selectedStation.properties.CAPACITY} availability={selectedStation.properties.AVAILABILITY}/>
            </> 
          ) : null}
   
