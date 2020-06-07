@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
-import * as parkData from "../data/skateboard-parks.json";
 import Popup from './Popup';
 import Header from './Header';
 import Button from 'react-bootstrap/Button';
+import app from "../firebase";
 
 function Map(){
 
@@ -16,6 +16,7 @@ function Map(){
     });
   
     const [selectedStation, setSelectedStation] = useState(null);
+    const [stationData, setStationData] = React.useState([]);
   
     useEffect(() => {
       const listener = e => {
@@ -25,6 +26,17 @@ function Map(){
       };
       window.addEventListener("keydown", listener);
     }, []);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const db = app.firestore();
+        const data = await db.collection("Station").get();
+        setStationData(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+      };
+      fetchData();
+    }, []);
+
+    console.log(stationData);
     
     return (
      <div>
@@ -37,15 +49,15 @@ function Map(){
             setViewport(viewport);
           }}
           >
-            {parkData.features.map(park => (
+            {stationData.map(station => (
             <Marker
-              key={park.properties.PARK_ID}
-              latitude={park.geometry.coordinates[1]}
-              longitude={park.geometry.coordinates[0]}
+              key={station.stationID}
+              latitude={station.coordinates.latitude}
+              longitude={station.coordinates.longitude}
             >
                <Button variant="light" onClick = {e => {
                 e.preventDefault();
-                setSelectedStation(park);
+                setSelectedStation(station);
               }}>
                 <img src="/power.png" alt="Skate Park Icon" />
                 </Button>
@@ -54,12 +66,11 @@ function Map(){
          
          {selectedStation ? (
             <>
-            <Popup name={selectedStation.properties.NAME} address={selectedStation.properties.ADDRESS} capacity={selectedStation.properties.CAPACITY} availability={selectedStation.properties.AVAILABILITY}/>
+            <Popup name={selectedStation.name} address={selectedStation.location} capacity={selectedStation.capacity} availability={selectedStation.availability}/>
            </> 
          ) : null}
   
-       </ReactMapGL>  
-       
+       </ReactMapGL>        
      </div>
     );
   }

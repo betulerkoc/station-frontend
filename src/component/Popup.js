@@ -4,9 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import app from '../firebase';
+
 
 function Popup(props){
+   
   return (
         <Modal.Dialog>
         <Tabs>
@@ -18,6 +19,7 @@ function Popup(props){
             </Tab>
             <Tab eventKey="reservation" title="Reservation">
                 <h2>Make Reservation</h2>
+               
             </Tab>
             <Tab eventKey="charging" title="Charging">
                 <h2>Charging</h2>
