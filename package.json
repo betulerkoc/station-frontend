@@ -10,6 +10,8 @@
     "firebase": "^7.14.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
+    "react-bootstrap-date-picker": "^5.1.0",
+    "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.5",
     "react-router-dom": "^5.2.0",

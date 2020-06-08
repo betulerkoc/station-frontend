@@ -10,6 +10,7 @@ function Header(){
 
   const { currentUser } = useContext(AuthContext);
   console.log(currentUser.email);
+  console.log(currentUser.uid);
 
   return (
   <>

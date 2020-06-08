@@ -5,8 +5,7 @@ import {AuthProvider} from '../context';
 import SignUp from './SignUp';
 import Login from './Login';
 import Map from './Map';
-
-
+import User from './User';
 
 function App(){
 
@@ -20,6 +19,9 @@ function App(){
        </div>
    </Router>
    </AuthProvider>
+  // <div>
+  //   <User/>
+  // </div>
   );
 }
 

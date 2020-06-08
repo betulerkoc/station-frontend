@@ -1,9 +1,9 @@
 import React from 'react';
 import StationComp from './StationComp';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import Reservation from './Reservation';
 
 
 function Popup(props){
@@ -19,7 +19,7 @@ function Popup(props){
             </Tab>
             <Tab eventKey="reservation" title="Reservation">
                 <h2>Make Reservation</h2>
-               
+                <Reservation stationID={props.stationID}/>
             </Tab>
             <Tab eventKey="charging" title="Charging">
                 <h2>Charging</h2>

@@ -14,6 +14,20 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
+    // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const db = app.firestore();
+  //     const user = await db.collection("User").get();
+  //     setCurrentUser(user)
+  //     setPending(false)
+  //     console.log(user)
+  //   };
+  //   fetchData();
+  // }, []);
+
+  console.log(currentUser);
+ 
+
   if(pending){
     return <>Loading...</>
   }

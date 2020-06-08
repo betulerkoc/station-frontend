@@ -66,7 +66,7 @@ function Map(){
          
          {selectedStation ? (
             <>
-            <Popup name={selectedStation.name} address={selectedStation.location} capacity={selectedStation.capacity} availability={selectedStation.availability}/>
+            <Popup name={selectedStation.name} address={selectedStation.location} capacity={selectedStation.capacity} availability={selectedStation.availability} stationID={selectedStation.stationID}/>
            </> 
          ) : null}
   
