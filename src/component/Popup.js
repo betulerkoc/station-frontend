@@ -12,6 +12,8 @@ function Popup(props){
     const [reservation, setReservationData] = React.useState([]);
     const { currentUser } = useContext(AuthContext);
 
+    console.log("prop:" + props.name);
+
     useEffect(() => {
         const fetchData = async () => {
           const db = app.firestore();
@@ -34,16 +36,18 @@ function Popup(props){
             </Tab>
             <Tab eventKey="reservation" title="Reservation">
                 <h2>Make Reservation</h2>
-                <Reservation stationID={props.stationID}/>
+                <Reservation stationID={props.stationID} capacity={props.capacity}/>
             </Tab>
             <Tab eventKey="charging" title="Charging">
                 <h2>Your Reservation</h2>
                   {reservation.filter(item => item.stationID === props.stationID &&  item.userID === currentUser.uid).map(filteredItems => (
                     <li>
-                  {  filteredItems.startDate.toDate().toString()}
+                      {filteredItems.startDate.toDate().toString()}
+                      {filteredItems.startDate.toDate() <= new Date() &&  <StationComp/> }
                     </li>
+                  
+  
                 ))}
-                <StationComp/>
             </Tab>
         </Tabs>
         </Modal.Dialog>

@@ -35,7 +35,7 @@ class StationComp extends React.Component {
     <div>
       <form onSubmit= {this.onSubmit}>
         <div>
-          <label>Price: {this.state.value} ether</label>
+          {/* <label>Price: {this.state.value} ether</label> */}
         {this.state.message == 'Please wait for the transaction...' ?   <p>{this.state.message}  <Spinner animation="border" variant="danger" /> </p> : ''}
         </div>
         <button>Start Charging</button>
