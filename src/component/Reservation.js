@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Reservation(props) {
 
-    const [startDate, setStartDate] = useState();
+    const [startDate, setStartDate] = useState(new Date());
     const { currentUser } = useContext(AuthContext);
 
     const handleChange = date => {
@@ -28,8 +28,7 @@ function Reservation(props) {
         const userRef = db.collection("Reservation").add({
           startDate: startDate,
           userID: currentUser.uid,
-          stationID: props.stationID,
-          chargingStatus: true
+          stationID: props.stationID
         }); 
         console.log(startDate)
       };
