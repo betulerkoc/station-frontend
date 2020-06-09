@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import StationComp from './StationComp';
-import Modal from 'react-bootstrap/Modal';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
+import { Tab, Tabs, Modal} from "react-bootstrap";
 import Reservation from './Reservation';
 import { AuthContext } from '../context';
 import app from "../firebase";
@@ -22,7 +20,7 @@ function Popup(props){
           console.log(data);
         };
         fetchData();
-      }, []);
+      }, [reservation]);
 
       console.log(currentUser);
   return (
@@ -38,15 +36,13 @@ function Popup(props){
                 <h2>Make Reservation</h2>
                 <Reservation stationID={props.stationID} capacity={props.capacity}/>
             </Tab>
-            <Tab eventKey="charging" title="Charging">
-                <h2>Your Reservation</h2>
+            <Tab eventKey="charging" title="Start Charging">
+                <h2>Your Reservations</h2>
                   {reservation.filter(item => item.stationID === props.stationID &&  item.userID === currentUser.uid).map(filteredItems => (
                     <li>
                       {filteredItems.startDate.toDate().toString()}
                       {filteredItems.startDate.toDate() <= new Date() &&  <StationComp/> }
                     </li>
-                  
-  
                 ))}
             </Tab>
         </Tabs>

@@ -3,7 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "../firebase";
 import { AuthContext } from '../context';
 import {Link} from "react-router-dom";
-import Container from 'react-bootstrap/Container';
+import { Button, FormGroup, FormControl, ControlLabel, Container } from "react-bootstrap";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -31,23 +31,30 @@ const Login = ({ history }) => {
 
   return (
     <Container>
-      <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <br/>
-        <label>
-          Password:
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <br/>
-        <button type="submit">Log in</button>
-        <br/>
-      </form>
-         <label>Don't you have an account<Link to="/signup"> Sign Up</Link></label>
-    </Container>
+       <form onSubmit={handleLogin}>
+              <FormGroup controlId="email" bsSize="large">
+                <h2>Email</h2>
+                <FormControl
+                  autoFocus
+                  type="email"
+                  name="email"
+                  placeholder="Email" 
+                />
+              </FormGroup>
+              <FormGroup controlId="password" bsSize="large">
+                <h2>Password</h2>
+                <FormControl
+                  name="password"
+                  type="password" 
+                  placeholder="Password"
+                />
+              </FormGroup>
+              <Button type="submit">
+                Login
+              </Button>
+            </form>
+            <label>Don't you have an account<Link to="/signup"> Sign Up</Link></label> 
+    </Container>    
   );
 };
 

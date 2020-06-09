@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import {Link} from "react-router-dom";
 import app from "../firebase";
-import Container from 'react-bootstrap/Container';
+import { Button, FormGroup, FormControl, ControlLabel, Container } from "react-bootstrap";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -20,21 +20,29 @@ const SignUp = ({ history }) => {
 
   return (
     <Container>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
-        <label>
-          Email:
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <br/>
-        <label>
-          Password:
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <br/>
-        <button type="submit">Sign Up</button>
-      </form>
-      <label>Do you have an account<Link to="/login"> Login</Link></label>
+    <form onSubmit={handleSignUp}>
+            <FormGroup controlId="email" bsSize="large">
+              <h2>Email</h2>
+              <FormControl
+                autoFocus
+                type="email"
+                name="email"
+                placeholder="Email" 
+              />
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+              <h2>Password</h2>
+              <FormControl
+                name="password"
+                type="password" 
+                placeholder="Password"
+              />
+            </FormGroup>
+            <Button type="submit">
+            Sign Up
+            </Button>
+          </form>
+          <label>Do you have an account<Link to="/login"> Login</Link></label>
     </Container>
   );
 };
