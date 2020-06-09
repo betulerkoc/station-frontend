@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import firebase from "../firebase";
 import DatePicker from 'react-datepicker';
 import { AuthContext } from '../context';
+import swal from 'sweetalert';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -30,6 +31,8 @@ function Reservation(props) {
           userID: currentUser.uid,
           stationID: props.stationID
         }); 
+        swal("", "Thanks for booking!", "success");
+        setStartDate(new Date());
         console.log(startDate)
       };
 
