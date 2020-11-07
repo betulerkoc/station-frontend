@@ -30,7 +30,7 @@ function Popup(props){
                 <h2>{props.name}</h2>
                 <p>Address: {props.address}</p>
                 <p>Capacity: {props.capacity}</p>
-                <p>Availability: {props.availability ?  <img src="/yess.png"/> :  <img src="/no.png"/>}</p>
+                <p>Availability: {props.availability ?  <img alt="" src="/yess.png"/> :  <img alt="" src="/no.png"/>}</p>
             </Tab>
             <Tab eventKey="reservation" title="Reservation">
                 <h2>Make Reservation</h2>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import web3 from '../ethereum/web3';
 import station from '../ethereum/station';
 import Spinner from 'react-bootstrap/Spinner';
@@ -36,7 +36,7 @@ class StationComp extends React.Component {
       <form onSubmit= {this.onSubmit}>
         <div>
           <label>Price: {this.state.value} ether</label>
-        {this.state.message == 'Please wait for the transaction...' ?   <p>{this.state.message}  <Spinner animation="border" variant="danger" /> </p> : ''}
+        {this.state.message === 'Please wait for the transaction...' ?   <p>{this.state.message}  <Spinner animation="border" variant="danger" /> </p> : ''}
         </div>
         <button>Start Charging</button>
 

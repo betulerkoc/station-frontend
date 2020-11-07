@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import {Link} from "react-router-dom";
 import app from "../firebase";
-import { Button, FormGroup, FormControl, ControlLabel, Container } from "react-bootstrap";
+import { Button, FormGroup, FormControl, Container } from "react-bootstrap";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {

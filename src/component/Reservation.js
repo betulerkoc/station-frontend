@@ -26,7 +26,7 @@ function Reservation(props) {
         db.settings({
           timestampsInSnapshots: true
         });
-        const userRef = db.collection("Reservation").add({
+        db.collection("Reservation").add({
           startDate: startDate,
           userID: currentUser.uid,
           stationID: props.stationID

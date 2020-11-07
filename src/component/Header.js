@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import app from '../firebase';
-import { Nav, Navbar} from "react-bootstrap";
+import { Navbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import { AuthContext } from '../context';
 import logo from '../logo.svg';

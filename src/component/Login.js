@@ -3,7 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "../firebase";
 import { AuthContext } from '../context';
 import {Link} from "react-router-dom";
-import { Button, FormGroup, FormControl, ControlLabel, Container } from "react-bootstrap";
+import { Button, FormGroup, FormControl, Container } from "react-bootstrap";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
